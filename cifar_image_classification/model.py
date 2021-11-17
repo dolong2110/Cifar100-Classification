@@ -1,18 +1,30 @@
+from typing import Any
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class ImageClassificationBase(nn.Module):
-    def training_step(self, batch):
-        images, labels = batch
-        out = self(images)  # Generate predictions
-        loss = F.cross_entropy(out, labels)  # Calculate loss
+from models import get_model
+
+class ImageClassificationBase(pl.LightningModule):
+    def __init__(self, model_name: str = None):
+        super().__init__()
+        self.model = get_model(model_name)
+
+    def forward(self, input):
+        predicted_label = self.model(input)
+        return predicted_label
+
+    def training_step(self, train_batch):
+        images, labels = train_batch
+        predicted_label = self.forward(images)  # Generate predictions
+        loss = F.cross_entropy(predicted_label, labels)  # Calculate loss
         return loss
 
-    def validation_step(self, batch):
-        images, labels = batch
-        out = self(images)  # Generate predictions
-        loss = F.cross_entropy(out, labels)  # Calculate loss
+    def validation_step(self, val_batch):
+        images, labels = val_batch
+        predicted_label = self.forward(images)  # Generate predictions
+        loss = F.cross_entropy(predicted_label, labels)  # Calculate loss
         acc = accuracy(out, labels)  # Calculate accuracy
         return {'val_loss': loss.detach(), 'val_acc': acc}
 
