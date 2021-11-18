@@ -1,5 +1,6 @@
 import torch
 import torchmetrics
+from tqdm import tqdm
 
 from utils import devices
 from dataset.dataloader import Dataset
@@ -37,10 +38,17 @@ def main(args):
     model.eval()
     data = Dataset(args.image_size)
     cifar100_training_data = data.get_train_data(augmentation=True)
-    cifar100_test_data = data.get_test_data()
-    acc_metrics = torchmetrics.Accuracy()
+    # cifar100_test_data = data.get_test_data()
     f1_metrics = torchmetrics.F1()
 
+    for data in tqdm(cifar100_training_data):
+        image, label = data
+        image = image.to(device)
+        predicted_label = model.forward(image)
+        _ = f1_metrics(predicted_label, label)
+
+    avg_f1 = f1_metrics.compute()
+    print("F1 Score:", avg_f1)
 
 if __name__ == "__main__":
     import argparse
@@ -58,5 +66,5 @@ if __name__ == "__main__":
                         help="num workers")
     parser.add_argument("--image_size", type=tuple, default=(640, 640),
                         help="image size")
-    args = parser.parse_args()
-    main(args)
+    arguments = parser.parse_args()
+    main(arguments)

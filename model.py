@@ -1,7 +1,6 @@
 import torch
 import torch.nn.functional as F
 import pytorch_lightning as pl
-from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADERS
 
 from models import get_model
 
