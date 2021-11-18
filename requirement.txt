@@ -5,6 +5,7 @@ matplotlib>=3.2.2
 numpy>=1.19.5
 torch>=1.7.0
 torchvision>=0.8.1
+pytorch_lightning>=1.4.9
 
 # Logging -------------------------------------
 

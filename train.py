@@ -1,23 +1,25 @@
+import torch
 import torchmetrics
 
 from utils import devices
 from dataset.dataloader import Dataset
+from model import ImageClassificationModel
 
 
 class EvaluateClassifier:
     def __init__(self,
-                 model: str,
+                 model_type: str,
                  device = None,
                  image_size: tuple = (640, 640)):
         super().__init__()
-        self.model = model
+        self.model_type = model_type
         self.device = torch.device(device)
         self.image_size = image_size
-        self._load_pytorch_lightning_model(model)
+        self._load_pytorch_lightning_model(model_type)
 
-    def _load_pytorch_lightning_model(self, model):
-        self.model = ClassificationModel.load_from_checkpoint(
-                                                checkpoint_path=model,
+    def _load_pytorch_lightning_model(self, model_type):
+        self.model = ImageClassificationModel.load_from_checkpoint(
+                                                checkpoint_path=model_type,
                                                 map_location=self.device)
         self.model.to(self.device)
 
@@ -27,8 +29,8 @@ class EvaluateClassifier:
             return predicted_label
 
 def main(args):
-    device = devices.get_device()
-    model = EvaluateClassifier(model=args.model,
+    device = devices.get_default_device()
+    model = EvaluateClassifier(model_type=args.model,
                                device=device,
                                image_size=args.image_size)
 

@@ -5,7 +5,7 @@ import torch
 import matplotlib.pyplot as plt
 from torchvision.utils import make_grid
 
-from cifar_image_classification.configs import train_data_configs
+from configs import train_data_configs
 
 def get_mean_std(dataset) -> (Tuple, Tuple):
     """compute the mean and std of  dataset

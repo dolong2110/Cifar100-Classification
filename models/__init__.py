@@ -22,7 +22,4 @@ def get_model(model_name):
     else:
         raise 'Model {} not available'.format(model_name)
 
-    if args.gpu:  # use_gpu
-        model = model.cuda()
-
     return model
