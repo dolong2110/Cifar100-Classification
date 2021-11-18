@@ -1,3 +1,5 @@
+from .resnet import resnet18, resnet34, resnet50, resnet101, resnet152
+
 def get_model(model_name):
     if model_name == 'resnet18':
         from resnet import resnet18
@@ -14,9 +16,9 @@ def get_model(model_name):
     elif model_name == 'resnet152':
         from resnet import resnet152
         model = resnet152()
-    elif model_name == 'mobilenet':
-        from mobilenet import mobilenet
-        model = mobilenet()
+    # elif model_name == 'mobilenet':
+    #     from mobilenet import mobilenet
+    #     model = mobilenet()
     else:
         raise 'Model {} not available'.format(model_name)
 

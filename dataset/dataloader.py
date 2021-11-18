@@ -2,7 +2,7 @@ from torch.utils.data import DataLoader
 import torch.utils.data.dataset as DataSet
 from torchvision import datasets
 
-from cifar_image_classification.configs import train_data_configs, test_data_configs, global_configs
+from configs import train_data_configs, test_data_configs, global_configs
 from augmentation import augment_cifar100_train, augment_cifar100_basic
 
 
