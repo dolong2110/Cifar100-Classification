@@ -1,5 +1,5 @@
 python3 train.py \
-    --model_path="" \
+    --model="" \
     --batch_size=16 \
     --csv_dir="" \
     --data_dir="./data" \
