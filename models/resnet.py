@@ -121,6 +121,11 @@ class ResNet(ImageClassificationBase):
 
         return output
 
+def resnet9():
+    """ return a ResNet 9 object
+    """
+    return ResNet(BasicBlock, [1, 1, 1, 1])
+
 def resnet18():
     """ return a ResNet 18 object
     """

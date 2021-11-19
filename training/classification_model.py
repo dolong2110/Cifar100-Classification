@@ -2,24 +2,24 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-def accuracy(outputs, labels):
-    _, preds = torch.max(outputs, dim=1)
-    return torch.tensor(torch.sum(preds == labels).item() / len(preds))
+def measure_accuracy(predicted, labels):
+    _, predicted_labels = torch.max(predicted, dim=1)
+    return torch.tensor(torch.sum(predicted_labels == labels).item() / len(predicted_labels))
 
 
 class ImageClassificationBase(nn.Module):
     def training_step(self, batch):
         images, labels = batch
-        out = self(images)  # Generate predictions
-        loss = F.cross_entropy(out, labels)  # Calculate loss
+        predicted = self(images)  # Generate predictions
+        loss = F.cross_entropy(predicted, labels)  # Calculate loss
         return loss
 
     def validation_step(self, batch):
         images, labels = batch
-        out = self(images)  # Generate predictions
-        loss = F.cross_entropy(out, labels)  # Calculate loss
-        acc = accuracy(out, labels)  # Calculate accuracy
-        return {'val_loss': loss.detach(), 'val_acc': acc}
+        predicted = self(images)  # Generate predictions
+        loss = F.cross_entropy(predicted, labels)  # Calculate loss
+        accuracy = measure_accuracy(predicted, labels)  # Calculate accuracy
+        return {'val_loss': loss.detach(), 'val_acc': accuracy}
 
     @staticmethod
     def validation_epoch_end(outputs):

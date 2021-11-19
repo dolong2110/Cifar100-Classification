@@ -1,21 +1,21 @@
 import torchvision.transforms as tt
 
-def augment_cifar100_train(image_resolution, mean, std):
+def augment_cifar100(image_resolution, mean, std):
     transform = tt.Compose([
         # tt.ToPILImage(),
         # tt.RandomRotate
-        # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)),
-        # # tt.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),
-        # tt.RandomCrop(image_resolution, padding=4),  # image resolution is 32 for cifar100
-        # tt.RandomHorizontalFlip(),
-        # tt.RandomRotation(15),
+        tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)),
+        # tt.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),
+        tt.RandomCrop(image_resolution, padding=4),  # image resolution is 32 for cifar100
+        tt.RandomHorizontalFlip(),
+        tt.RandomRotation(15),
         tt.ToTensor(),
         tt.Normalize(mean, std)
     ])
 
     return transform
 
-def augment_cifar100_basic(mean, std):
+def normalize_data(mean, std):
     transform = tt.Compose([
         tt.ToTensor(),
         tt.Normalize(mean, std)
