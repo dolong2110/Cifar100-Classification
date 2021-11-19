@@ -1,16 +1,12 @@
 # pip install -r requirements.txt
 
 # Base ----------------------------------------
-matplotlib>=3.2.2
 numpy>=1.19.5
-torch==1.9.1
-torchvision==0.10.1
-torchmetrics
-pytorch_lightning>=1.4.9
-tqdm
-jsonargparse[signatures]
+torch>=1.10.0
+torchvision>=0.11.1
 
 # Logging -------------------------------------
 
 
 # Plotting ------------------------------------
+matplotlib>=3.2.2

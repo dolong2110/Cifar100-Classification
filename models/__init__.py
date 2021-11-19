@@ -1,7 +1,10 @@
+from .basic_nn import Net
 from .resnet import resnet18, resnet34, resnet50, resnet101, resnet152
 
 def get_model(model_name):
-    if model_name == 'resnet18':
+    if model_name == 'basic_nn':
+        model = Net()
+    elif model_name == 'resnet18':
         model = resnet18()
     elif model_name == 'resnet34':
         model = resnet34()

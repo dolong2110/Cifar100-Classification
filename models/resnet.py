@@ -1,6 +1,8 @@
 import torch.nn as nn
 
-class BasicBlock(nn.Module):
+from training.classification_model import ImageClassificationBase
+
+class BasicBlock(ImageClassificationBase):
     """ Basic Block for resnet 18 and resnet 34
         BasicBlock and BottleNeck block
         have different output size
@@ -36,7 +38,7 @@ class BasicBlock(nn.Module):
     def forward(self, x):
         return nn.ReLU(inplace=True)(self.residual_function(x) + self.shortcut(x))
 
-class BottleNeck(nn.Module):
+class BottleNeck(ImageClassificationBase):
     """Residual block for resnet over 50 layers
     """
     expansion = 4
@@ -65,7 +67,7 @@ class BottleNeck(nn.Module):
     def forward(self, x):
         return nn.ReLU(inplace=True)(self.residual_function(x) + self.shortcut(x))
 
-class ResNet(nn.Module):
+class ResNet(ImageClassificationBase):
     def __init__(self, block, num_block, num_classes=100):
         super().__init__()
 

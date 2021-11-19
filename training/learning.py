@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 
+
 @torch.no_grad()
 def evaluate(model, val_loader):
     model.eval()
@@ -13,7 +14,7 @@ def get_lr(optimizer):
         return param_group['lr']
 
 
-def fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
+def fit_one_cycle(epochs: int, max_lr, model, model_name: str, train_loader, val_loader,
                   weight_decay=0, grad_clip=None, opt_func=torch.optim.SGD):
     torch.cuda.empty_cache()
     history = []
@@ -51,5 +52,8 @@ def fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
         result['lrs'] = lrs
         model.epoch_end(epoch, result)
         history.append(result)
-        
+
+    path = "./data/cifar100_" + model_name + ".pth"
+    torch.save(model.state_dict(), path)
+
     return history
