@@ -11,8 +11,8 @@ class Dataset:
         self.image_resolution = image_resolution
     
     @staticmethod
-    def load_data(data_set: DataSet, batch_size, num_workers, shuffle):
-        return DataLoader(data_set, batch_size, num_workers, shuffle)
+    def load_data(data_set: DataSet, batch_size, num_workers, is_shuffle):
+        return DataLoader(data_set, batch_size=batch_size, shuffle=is_shuffle, num_workers=num_workers)
 
     def get_train_data(self, augmentation=False, mean=train_data_configs.MEAN, std=train_data_configs.STD):
         transformer = augment_cifar100_basic(mean, std)
