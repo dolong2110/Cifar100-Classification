@@ -3,8 +3,7 @@ from typing import Type, Any, Callable, Union, List, Optional
 import torch
 import torch.nn as nn
 from torch import Tensor
-from torchvision.models.utils import load_state_dict_from_url
-
+from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
 __all__ = [
     "ResNet",
@@ -19,6 +18,8 @@ __all__ = [
     "wide_resnet101_2",
 ]
 
+from torchvision.models import resnet101, resnet152, resnext50_32x4d, resnext101_32x8d, wide_resnet50_2, \
+    wide_resnet101_2
 
 model_urls = {
     "resnet18": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
