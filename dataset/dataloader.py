@@ -3,7 +3,7 @@ import torch.utils.data.dataset as DataSet
 from torchvision import datasets
 
 from configs import train_data_configs, test_data_configs, global_configs
-from augmentation import augment_cifar100_train, augment_cifar100_basic
+from dataset.augmentation import augment_cifar100_train, augment_cifar100_basic
 
 
 class Dataset:
