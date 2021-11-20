@@ -17,7 +17,7 @@ class Dataset:
     def get_train_data(self, augmentation=False, mean=train_data_configs.MEAN, std=train_data_configs.STD):
         transformer = normalize_data(mean, std)
         if augmentation:
-            transformer = normalize_data(self.image_resolution, mean, std)
+            transformer = normalize_data(mean, std)
         data_set = datasets.CIFAR100(root='./data', train=True, download=True,
                                      transform=transformer)
 
