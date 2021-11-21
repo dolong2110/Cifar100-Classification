@@ -8,7 +8,7 @@ from configs import global_configs
 
 def main(args):
     device = devices.get_default_device()
-    return "My device ", device
+    raise "My device " + device
     model = models.get_model(args.model)
 
     data = Dataset(args.image_size)
