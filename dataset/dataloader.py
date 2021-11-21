@@ -15,9 +15,9 @@ class Dataset:
         return DataLoader(data_set, batch_size=batch_size, shuffle=is_shuffle, num_workers=num_workers)
 
     def get_train_data(self, augmentation=False, mean=train_data_configs.MEAN, std=train_data_configs.STD):
-        transformer = augment_cifar100(self.image_resolution, mean, std)
+        transformer = normalize_data(mean, std)
         if augmentation:
-            transformer = normalize_data(mean, std)
+            transformer = augment_cifar100(self.image_resolution, mean, std)
         data_set = datasets.CIFAR100(root='./data', train=True, download=True,
                                      transform=transformer)
 

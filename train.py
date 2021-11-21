@@ -8,6 +8,7 @@ from configs import global_configs
 
 def main(args):
     device = devices.get_default_device()
+    print("My device: ", device)
     model = models.get_model(args.model)
 
     data = Dataset(args.image_size)
@@ -36,7 +37,7 @@ if __name__ == "__main__":
     parser.add_argument("--data_dir", type=str, default="",
                         help="data directory")
     parser.add_argument("--num_workers", type=int, default= 2,
-                        help="num workers")
+                        help="num workers") # number of thread
     parser.add_argument("--image_size", type=tuple, default=(640, 640),
                         help="image size")
     arguments = parser.parse_args()
