@@ -8,7 +8,7 @@ from configs import global_configs
 
 def main(args):
     device = devices.get_default_device()
-    if torch.device('cuda'):
+    if torch.device('cpu'):
         return
     model = models.get_model(args.model)
 
