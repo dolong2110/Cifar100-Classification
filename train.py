@@ -8,7 +8,8 @@ from configs import global_configs
 
 def main(args):
     device = devices.get_default_device()
-    raise "My device " + device
+    if torch.device('cpu'):
+        return
     model = models.get_model(args.model)
 
     data = Dataset(args.image_size)
