@@ -8,12 +8,12 @@ from configs import global_configs
 
 def main(args):
     device = devices.get_default_device()
-    if torch.device == 'cpu':
+    if torch.device == 'cuda':
         return
     model = models.get_model(args.model)
 
     data = Dataset(args.image_size)
-    cifar100_training_data = data.get_train_data(augmentation=True)
+    cifar100_training_data = data.get_train_data(augmentation=args.augmentation)
     cifar100_test_data = data.get_test_data()
     train_dl = devices.DeviceDataLoader(cifar100_training_data, device)
     valid_dl = devices.DeviceDataLoader(cifar100_test_data, device)
@@ -38,8 +38,10 @@ if __name__ == "__main__":
     parser.add_argument("--data_dir", type=str, default="",
                         help="data directory")
     parser.add_argument("--num_workers", type=int, default= 2,
-                        help="num workers") # number of thread
+                        help="num workers")  # number of threads
     parser.add_argument("--image_size", type=tuple, default=(640, 640),
                         help="image size")
+    parser.add_argument("--augmentation", type=bool, default=False,
+                        help="augmentation")
     arguments = parser.parse_args()
     main(arguments)

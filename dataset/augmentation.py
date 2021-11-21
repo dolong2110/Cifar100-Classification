@@ -14,7 +14,7 @@ def augment_cifar100(image_resolution, mean, std):
         tt.RandomCrop(image_resolution, padding=4, padding_mode='reflect'),  # image resolution is 32 for cifar100
         tt.RandomHorizontalFlip(),
         tt.ToTensor(),
-        tt.Normalize(mean, std)
+        tt.Normalize(mean, std, inplace=True)
     ])
 
     return transform
