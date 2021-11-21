@@ -11,6 +11,7 @@ def main(args):
     if torch.device == 'cuda':
         return
     model = models.get_model(args.model)
+    model = devices.to_device(model, device)
 
     data = Dataset(args.image_size)
     cifar100_training_data = data.get_train_data(augmentation=args.augmentation)
