@@ -5,7 +5,7 @@ def get_cifar100_mean_std(images) -> (float, float):
     average = torch.Tensor([0, 0, 0])
     standard_dev = torch.Tensor([0, 0, 0])
     for image in images:
-        print(image)
+        print(len(image))
         average += image[0].mean([1, 2])
         standard_dev += image[0].std([1, 2])
     return average / len(images), standard_dev / len(images)
