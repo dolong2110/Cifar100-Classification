@@ -3,7 +3,7 @@ import torch.utils.data.dataset as DataSet
 from torchvision import datasets
 
 from configs import train_data_configs, test_data_configs, global_configs
-from dataset.augmentation import augment_cifar100, normalize_data, get_cifar100_mean_std
+from dataset.augmentation import augment_cifar100, normalize_data, get_cifar100_mean_std, to_tensor
 
 
 class Dataset:
@@ -20,7 +20,8 @@ class Dataset:
         #     transformer = augment_cifar100(self.image_resolution, mean, std)
         # data_set = datasets.CIFAR100(root='./data', train=True, download=True,
         #                              transform=transformer)
-        data_set = datasets.CIFAR100(root='./data', train=True, download=True)
+        data_set = datasets.CIFAR100(root='./data', train=True, download=True,
+                                     transform=to_tensor())
 
         data = self.load_data(data_set, train_data_configs.BATCH_SIZE,
                               train_data_configs.NUM_WORKERS, train_data_configs.SHUFFLE)

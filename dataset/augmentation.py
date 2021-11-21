@@ -34,6 +34,10 @@ def augment_general(image_resolution, mean, std):
 
     return transform
 
+def to_tensor():
+    transform = tt.Compose([tt.ToTensor()])
+    return transform
+
 def normalize_data(mean, std):
     transform = tt.Compose([
         tt.ToTensor(),
