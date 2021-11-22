@@ -19,7 +19,7 @@ $ pip install -r requirements.txt
 
 - finally train the model
 ````bash
-$ python3 train.py --model resnet18 --image_size 32 --augmentaion True
+$ python3 train.py --model resnet18 --image_size 32 --augmentation True
 ````
 
 Notes here is that:
