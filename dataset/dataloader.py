@@ -23,6 +23,7 @@ class Dataset:
         mean, std = get_cifar100_mean_std(data)
         transformer = normalize_data(mean, std)
         if augmentation:
+            print("KAKA")
             transformer = augment_cifar100(self.image_resolution, mean, std)
 
         data_set = datasets.CIFAR100(root='./data', train=True, download=True,
