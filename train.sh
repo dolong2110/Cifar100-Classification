@@ -4,4 +4,5 @@ python3 train.py \
     --csv_dir="" \
     --data_dir="./data" \
     --num_workers=2 \
-    --image_size=(32,32)
+    --image_size=(32,32) \
+    --augmentation=False
