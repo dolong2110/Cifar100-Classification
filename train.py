@@ -21,8 +21,8 @@ def main(args):
 
     history = [learning.evaluate(model, valid_dl)]
     history += learning.fit_one_cycle(global_configs.EPOCH, global_configs.MAX_LR, model, args.model,
-                                      train_dl, valid_dl, grad_clip=global_configs.GRAD_CLIP,
-                                      weight_decay=global_configs.WEIGHT_DECAY, opt_func=torch.optim.Adam)
+                                      train_dl, valid_dl, weight_decay=global_configs.WEIGHT_DECAY,
+                                      grad_clip=global_configs.GRAD_CLIP, opt_func=torch.optim.Adam)
 
 
 
