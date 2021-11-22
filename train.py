@@ -5,6 +5,7 @@ from dataset.dataloader import Dataset
 import models
 from training import learning
 from configs import global_configs
+from plots import graph
 
 def main(args):
     device = devices.get_default_device()
@@ -24,7 +25,9 @@ def main(args):
                                       train_dl, valid_dl, weight_decay=global_configs.WEIGHT_DECAY,
                                       grad_clip=global_configs.GRAD_CLIP, opt_func=torch.optim.Adam)
 
-
+    graph.plot_accuracies(history)
+    graph.plot_losses(history)
+    graph.plot_lrs(history)
 
 if __name__ == "__main__":
     import argparse
