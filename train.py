@@ -40,7 +40,7 @@ if __name__ == "__main__":
                         help="data directory")
     parser.add_argument("--num_workers", type=int, default= 2,
                         help="num workers")  # number of threads
-    parser.add_argument("--image_size", type=tuple, default=(640, 640),
+    parser.add_argument("--image_size", type=tuple, default=32,
                         help="image size")
     parser.add_argument("--augmentation", type=bool, default=False,
                         help="augmentation")
