@@ -24,7 +24,6 @@ class Dataset:
                                      transform=to_tensor())
         data = self.load_data(data_set, train_data_configs.BATCH_SIZE,
                               train_data_configs.NUM_WORKERS, train_data_configs.SHUFFLE)
-        print(data)
 
         mean, std = get_cifar100_mean_std(data)
         transformer = normalize_data(mean, std)
