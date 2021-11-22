@@ -17,6 +17,7 @@ def augment_cifar100(image_resolution, mean, std):
     transform = tt.Compose([
         tt.RandomCrop(image_resolution, padding=4, padding_mode='reflect'),  # image resolution is 32 for cifar100
         tt.RandomHorizontalFlip(),
+        tt.RandomRotation(15),
         tt.ToTensor(),
         tt.Normalize(mean, std, inplace=True)
     ])
@@ -26,7 +27,6 @@ def augment_cifar100(image_resolution, mean, std):
 def augment_general(image_resolution, mean, std):
     transform = tt.Compose([
         # tt.ToPILImage(),
-        tt.RandomRotation(degrees=(90, -90), fill=(0,)),
         tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)),
         tt.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),
         tt.RandomCrop(image_resolution, padding=4, padding_mode='reflect'),  # image resolution is 32 for cifar100
