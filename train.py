@@ -29,9 +29,6 @@ def main(args):
     graph.plot_losses(history)
     graph.plot_lrs(history)
 
-    result = learning.evaluate(model, valid_dl)
-    print(result)
-
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Evaluate model")
