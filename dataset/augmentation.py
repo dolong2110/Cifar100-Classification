@@ -9,8 +9,8 @@ def get_cifar100_mean_std(images) -> (float, float):
     #     average += image[0].mean([1, 2])
     #     standard_dev += image[0].std([1, 2])
     # return average / len(images), standard_dev / len(images)
-    for image_genre in images:
-        for image in image_genre[0][1]:
+    for image_genre in images[0]:
+        for image in image_genre[1]:
             print(image)
             average += image[0].mean([1, 2])
             standard_dev += image[0].std([1, 2])
