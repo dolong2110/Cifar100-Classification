@@ -27,3 +27,18 @@ Notes here is that:
 - `resnet18` is the model's name you can replace its with any available models in my package. For instance resnet152, mobilenet, etc.
 - `32` is the images' size. That is the default image size of the cifar100.
 - `True` here is whether we should augment data or not.
+
+# Models Using
+- self-implement cnn (basic_nn)
+- linear regression (linear_regression)
+- resnet9 (resnet9)
+- resnet18 (resnet18)
+- resnet34 (resnet34)
+- resnet50 (resnet50)
+- resnet101 (resnet101)
+- resnet152 (resnet152)
+- mobilenet (mobilenet)
+- mobilenetv2 (mobilenetv2)
+
+# Report
+### 1. Version 1
