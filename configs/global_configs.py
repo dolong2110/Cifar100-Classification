@@ -1,6 +1,6 @@
 # image resolution
 IMAGE_RESOLUTION = 32
-EPOCH = 10
+EPOCH = 15
 MAX_LR = 0.01
 GRAD_CLIP = 0.1
 WEIGHT_DECAY = 1e-4

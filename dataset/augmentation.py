@@ -1,7 +1,7 @@
 import torch
 import torchvision.transforms as tt
 
-def get_cifar100_mean_std(images) -> (float, float):
+def get_cifar100_mean_std(images, digit_after_decimal) -> (float, float):
     average = torch.Tensor([0, 0, 0])
     standard_dev = torch.Tensor([0, 0, 0])
     length_data = 0
@@ -11,7 +11,8 @@ def get_cifar100_mean_std(images) -> (float, float):
             average += image.mean([1, 2])
             standard_dev += image.std([1, 2])
 
-    return (average / length_data).tolist(), (standard_dev / length_data).tolist()
+    return (torch.round((average / length_data) * 10**digit_after_decimal) / (10**digit_after_decimal)).tolist(), \
+           (torch.round((standard_dev / length_data) * 10**digit_after_decimal) / (10**digit_after_decimal)).tolist()
 
 def augment_cifar100(image_resolution, mean, std):
     transform = tt.Compose([
@@ -27,7 +28,7 @@ def augment_cifar100(image_resolution, mean, std):
 def augment_general(image_resolution, mean, std):
     transform = tt.Compose([
         # tt.ToPILImage(),
-        tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)),
+        tt.RandomResizedCrop(256, scale=(0.5, 0.9), ratio=(1, 1)),
         tt.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),
         tt.RandomCrop(image_resolution, padding=4, padding_mode='reflect'),  # image resolution is 32 for cifar100
         tt.RandomHorizontalFlip(),
