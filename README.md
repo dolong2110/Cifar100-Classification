@@ -63,7 +63,7 @@ add data augmentation
 | `linear_regression` |          |
 | `resnet9`           | 0.6375   |
 | `resnet18`          | 0.6739   |
-| `resnet34`          |          |
+| `resnet34`          | 0.6909   |
 | `resnet50`          |          |
 | `mobilenet`         | 0.4635   |
 | `mobilenetv2`       |          |
