@@ -25,7 +25,7 @@ $ python3 train.py --model resnet18 --image_size 32 --augmentation True
 Notes here is that:
 
 - `resnet18` is the model's name you can replace its with any available models in my package. For instance resnet152, mobilenet, etc.
-- `32` is the images' size. That is the default image size of the cifar100.
+- `32` is the images' size. It is the default image size of the cifar100.
 - `True` here is whether we should augment data or not.
 
 # Models Using
@@ -63,7 +63,7 @@ add data augmentation
 | `linear_regression` |          |
 | `resnet9`           | 0.6375   |
 | `resnet18`          | 0.6739   |
-| `resnet34`          |          |
+| `resnet34`          | 0.6909   |
 | `resnet50`          |          |
 | `mobilenet`         | 0.4635   |
 | `mobilenetv2`       |          |
