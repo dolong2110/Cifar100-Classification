@@ -4,7 +4,7 @@
 numpy>=1.19.5
 torch>=1.10.0
 torchvision>=0.11.1
-jsonargparse[signatures]
+jsonargparse[signatures]>=4.0.0
 
 # Logging -------------------------------------
 

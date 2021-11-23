@@ -14,7 +14,7 @@ def get_cifar100_mean_std(images, digit_after_decimal) -> (float, float):
     return (torch.round((average / length_data) * 10**digit_after_decimal) / (10**digit_after_decimal)).tolist(), \
            (torch.round((standard_dev / length_data) * 10**digit_after_decimal) / (10**digit_after_decimal)).tolist()
 
-def augment_cifar100(image_resolution, mean, std):
+def augment_cifar100(image_resolution, mean: float, std: float):
     transform = tt.Compose([
         tt.RandomCrop(image_resolution, padding=4, padding_mode='reflect'),  # image resolution is 32 for cifar100
         tt.RandomHorizontalFlip(),
