@@ -42,3 +42,28 @@ Notes here is that:
 
 # Report
 ### 1. Version 1
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| `basic_nn`          |          |
+| `linear_regression` |          |
+| `resnet9`           | 0.6188   |
+| `resnet18`          | 0.6405   |
+| `resnet34`          | 0.6479   |
+| `resnet50`          | 0.6133   |
+| `mobilenet`         |          |
+| `mobilenetv2`       |          |
+
+### 2. Version2
+add data augmentation
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| `basic_nn`          |          |
+| `linear_regression` |          |
+| `resnet9`           |          |
+| `resnet18`          | 0.6739   |
+| `resnet34`          |          |
+| `resnet50`          |          |
+| `mobilenet`         | 0.4635   |
+| `mobilenetv2`       |          |
