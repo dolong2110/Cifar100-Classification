@@ -23,7 +23,7 @@ def main(args):
     history = [learning.evaluate(model, valid_dl)]
     history += learning.fit_one_cycle(global_configs.EPOCH, global_configs.MAX_LR, model, args.model,
                                       train_dl, valid_dl, weight_decay=global_configs.WEIGHT_DECAY,
-                                      grad_clip=global_configs.GRAD_CLIP, opt_func=torch.optim.Adam)
+                                      grad_clip=global_configs.GRAD_CLIP, opt_func=torch.optim.SGD)
 
     graph.plot_accuracies(history)
     graph.plot_losses(history)
