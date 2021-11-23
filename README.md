@@ -61,7 +61,7 @@ add data augmentation
 | ------------------- | -------- |
 | `basic_nn`          |          |
 | `linear_regression` |          |
-| `resnet9`           |          |
+| `resnet9`           | 0.6375   |
 | `resnet18`          | 0.6739   |
 | `resnet34`          |          |
 | `resnet50`          |          |
