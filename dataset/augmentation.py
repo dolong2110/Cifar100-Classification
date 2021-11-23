@@ -11,7 +11,7 @@ def get_cifar100_mean_std(images) -> (float, float):
             average += image.mean([1, 2])
             standard_dev += image.std([1, 2])
 
-    return (average / length_data).tolist(), (standard_dev / length_data).tolist()
+    return (round(average / length_data, 16)).tolist(), (round(standard_dev / length_data, 16)).tolist()
 
 def augment_cifar100(image_resolution, mean, std):
     transform = tt.Compose([
