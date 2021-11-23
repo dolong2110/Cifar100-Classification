@@ -52,7 +52,7 @@ Notes here is that:
 | `resnet34`          | 0.6479   |
 | `resnet50`          | 0.6133   |
 | `mobilenet`         |          |
-| `mobilenetv2`       |          |
+| `mobilenetv2`       | 0.4572   |
 
 ### 2. Version2
 add data augmentation
