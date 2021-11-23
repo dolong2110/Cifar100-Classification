@@ -20,7 +20,7 @@ class Dataset:
         data = self.load_data(data_set, train_data_configs.BATCH_SIZE,
                               train_data_configs.NUM_WORKERS, train_data_configs.SHUFFLE)
 
-        mean, std = get_cifar100_mean_std(data)
+        mean, std = get_cifar100_mean_std(data, train_data_configs.DIGIT_AFTER_DECIMAL)
         print(mean, std)
         transformer = normalize_data(mean, std)
         if augmentation:
