@@ -67,3 +67,17 @@ add data augmentation
 | `resnet50`          |          |
 | `mobilenet`         | 0.4635   |
 | `mobilenetv2`       |          |
+
+### 3. Version3
+add epoch from 10 to 20
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| `basic_nn`          |          |
+| `linear_regression` |          |
+| `resnet9`           |          |
+| `resnet18`          |          |
+| `resnet34`          |          |
+| `resnet50`          |          |
+| `mobilenet`         |          |
+| `mobilenetv2`       |          |
