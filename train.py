@@ -25,9 +25,10 @@ def main(args):
                                       train_dl, valid_dl, weight_decay=global_configs.WEIGHT_DECAY,
                                       grad_clip=global_configs.GRAD_CLIP, opt_func=torch.optim.Adam)
 
-    graph.plot_accuracies(history)
-    graph.plot_losses(history)
-    graph.plot_lrs(history)
+    # graph.plot_accuracies(history)
+    # graph.plot_losses(history)
+    # graph.plot_lrs(history)
+    torch.save(history, 'cifar100.th')
 
 if __name__ == "__main__":
     import argparse
