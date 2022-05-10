@@ -1,5 +1,5 @@
 # Cifar100-Classification
-My play ground with image classification for Cifar100 dataset
+My play ground with image classification for Cifar100 dataset with various models
 
 # Usage
 - first you need to get the package
